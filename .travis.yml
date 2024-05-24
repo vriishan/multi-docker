@@ -7,15 +7,6 @@ env:
     - CLOUDSDK_CORE_DISABLE_PROMPTS=1
 before_install:
   - openssl aes-256-cbc -K $encrypted_6afc8162126b_key -iv $encrypted_6afc8162126b_iv -in multi-k8s-424303-4a18ada1f4a9.json.enc -out multi-k8s-424303-4a18ada1f4a9.json -d
-  # start python section - update to new python
-  - curl https://pyenv.run | bash
-  - export PATH="$HOME/.pyenv/bin:$PATH"
-  - eval "$(pyenv init --path)"
-  - eval "$(pyenv init -)"
-  - eval "$(pyenv virtualenv-init -)"
-  - pyenv install 3.9.6  # Replace with the desired Python version
-  - pyenv global 3.9.6
-  # end python section
   - curl https://sdk.cloud.google.com | bash > /dev/null;
   - source $HOME/google-cloud-sdk/path.bash.inc
   - gcloud components update kubectl
